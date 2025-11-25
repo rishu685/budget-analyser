@@ -1,16 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: true,
-  },
   // Ensure API routes work in production
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: '/api/:path*',
-      },
-    ];
+  experimental: {
+    serverComponentsExternalPackages: ['bcryptjs']
   },
   // PWA and performance optimizations
   async headers() {
