@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📱 BudgetBox - Local-First Personal Budgeting App
 
-## Getting Started
+A real, working **Offline-First** personal budgeting app built with Next.js 15 that follows Local-First principles. Works completely offline, auto-saves every keystroke locally, and syncs safely when the network returns.
 
-First, run the development server:
+## 🎯 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### ✅ Local-First Data Behavior
+- **IndexedDB Storage**: Uses LocalForage for robust local storage
+- **Offline-First**: App works with 0 internet connectivity  
+- **Auto-Save**: Every keystroke is saved instantly
+- **Sync Logic**: Clear status indicators (Local Only, Sync Pending, Synced)
+
+### 📊 Budget Management
+- **Monthly Budget Form**: Income, bills, food, transport, subscriptions, misc
+- **Auto-Generated Dashboard**: 
+  - 🔥 Burn Rate (Total expenses / Income)
+  - 💸 Savings Potential (Income - Total Spend)  
+  - 📅 Month-End Prediction
+  - 🍰 Category Pie Chart
+  - ⚠️ Anomaly Warnings (rule-based)
+
+### 🔧 Technical Features
+- **PWA Support**: Installable with service workers
+- **Responsive Design**: Works on mobile and desktop
+- **Real-time Sync**: Background sync when online
+- **Demo Authentication**: Pre-configured demo user
+
+## 🚀 Quick Start
+
+### Demo Login Credentials
+```
+Email: hire-me@anshumat.org
+Password: HireMe@2025!
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd budgetbox
+   ```
 
-## Learn More
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Run development server**
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Open in browser**
+   ```
+   http://localhost:3000
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🏗️ Architecture
 
-## Deploy on Vercel
+### Frontend Stack
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: TailwindCSS
+- **State Management**: Zustand with persistence
+- **Local Storage**: LocalForage (IndexedDB)
+- **Charts**: Recharts
+- **Icons**: Lucide React
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Backend Stack  
+- **API**: Next.js API Routes
+- **Authentication**: bcryptjs (demo user)
+- **Database**: In-memory storage (demo) + PostgreSQL schema ready
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Key Components
+
+```
+src/
+├── app/
+│   ├── api/
+│   │   ├── auth/login/          # Authentication endpoint
+│   │   └── budget/
+│   │       ├── sync/            # POST/GET budget sync
+│   │       └── latest/          # GET latest budget
+│   ├── layout.tsx               # Root layout with PWA
+│   └── page.tsx                 # Main app entry
+├── components/
+│   ├── AppContent.tsx           # Main app shell
+│   ├── BudgetForm.tsx           # Budget input form
+│   ├── Dashboard.tsx            # Analytics dashboard  
+│   ├── LoginForm.tsx            # Authentication UI
+│   └── PWAInstaller.tsx         # Service worker registration
+├── lib/
+│   ├── store.ts                 # Zustand state management
+│   ├── localDB.ts               # LocalForage wrapper
+│   └── types.ts                 # TypeScript interfaces
+└── public/
+    ├── manifest.json            # PWA manifest
+    └── sw.js                    # Service worker
+```
+
+**Built with ❤️ for the Local-First movement**

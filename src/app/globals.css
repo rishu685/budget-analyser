@@ -12,6 +12,21 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Make all text bolder by default */
+body {
+  font-weight: 500;
+}
+
+input, textarea {
+  font-weight: 500 !important;
+}
+
+/* Ensure input text is visible and bold */
+input::placeholder {
+  font-weight: 500 !important;
+  opacity: 0.7;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
