@@ -17,7 +17,7 @@ A real, working **Offline-First** personal budgeting app built with Next.js 15 t
   - 💸 Savings Potential (Income - Total Spend)  
   - 📅 Month-End Prediction
   - 🍰 Category Pie Chart
-  - ⚠️ Anomaly Warnings (rule-based)
+  - ⚠️ Anomaly Warnings 
 
 ### 🔧 Technical Features
 - **PWA Support**: Installable with service workers
